@@ -3,10 +3,10 @@
 // If no occurrences can be found, a count of 0 should be returned.
 
 
-function filterStrForLetter(str, letter){
-    let fltr = str.split("").filter(a => a === letter).length;
-    return fltr;
-}   
+// function filterStrForLetter(str, letter){
+//     let fltr = str.split("").filter(a => a === letter).length;
+//     return fltr;
+// }   
 
 // filterStrForLetter("hello", "o");
 // filterStrForLetter("hello", "l");
@@ -20,58 +20,58 @@ function filterStrForLetter(str, letter){
 // For empty string return: ["", 0]
 
 
-function longestRepetition(s) {
-    if (s.length === 0 ){
-        return ["", 0]
-    } else {
-        let match = s.match(/(\w)\1*/g);
+// function longestRepetition(s) {
+//     if (s.length === 0 ){
+//         return ["", 0]
+//     } else {
+//         let match = s.match(/(\w)\1*/g);
 
-        function sorted(arr){
-            let noSwaps;
-            for (let i = arr.length; i > 0; i--){
-                noSwaps=true;
-                for (let j = 0; j < i - 1 ; j++){
-                    if (arr[j].length > arr[j+1].length){
-                        let temp = arr[j];
-                        arr[j] = arr[j+1];
-                        arr[j+1] = temp;
-                        noSwaps = false;
-                    }
-                }
-                if(noSwaps) break; 
-            }
-            return arr ;
-        }
+//         function sorted(arr){
+//             let noSwaps;
+//             for (let i = arr.length; i > 0; i--){
+//                 noSwaps=true;
+//                 for (let j = 0; j < i - 1 ; j++){
+//                     if (arr[j].length > arr[j+1].length){
+//                         let temp = arr[j];
+//                         arr[j] = arr[j+1];
+//                         arr[j+1] = temp;
+//                         noSwaps = false;
+//                     }
+//                 }
+//                 if(noSwaps) break; 
+//             }
+//             return arr ;
+//         }
         
-        sorted(match);
+//         sorted(match);
     
-        let char = match[match.length - 1];
-        let charLetter = char[0];
-        let charLength = char.length;
+//         let char = match[match.length - 1];
+//         let charLetter = char[0];
+//         let charLength = char.length;
     
-        return [charLetter, charLength]
-    }
-}
+//         return [charLetter, charLength]
+//     }
+// }
 
 
-function longestRepetitionBest(s) {
-    if (s.length === 0 ){
-        return ["", 0]
-    } else {       
-        function sortStr(str1, str2){
-            return str2.length - str1.length || s.indexOf(str1) - s.indexOf(str2)
-        }
+// function longestRepetitionBest(s) {
+//     if (s.length === 0 ){
+//         return ["", 0]
+//     } else {       
+//         function sortStr(str1, str2){
+//             return str2.length - str1.length || s.indexOf(str1) - s.indexOf(str2)
+//         }
 
-        let match = s.match(/(\w)\1*/g).sort(sortStr);
-        console.log(match);
+//         let match = s.match(/(\w)\1*/g).sort(sortStr);
+//         console.log(match);
     
-        let char = match[0];
-        let charLetter = char[0];
-        let charLength = char.length;
+//         let char = match[0];
+//         let charLetter = char[0];
+//         let charLength = char.length;
     
-        return [charLetter, charLength]
-    }
-}
+//         return [charLetter, charLength]
+//     }
+// }
 
 // console.log(longestRepetitionBest('bbbaaabaaaa'));
 // console.log(longestRepetition("aaaabb"));
@@ -81,12 +81,12 @@ function longestRepetitionBest(s) {
 
 // write a function that output a structure of # where each row number is equal the number of # printed.
 
-function pyramid() {
-    for(let i =0; i < 7; i++){
-        console.log(("#".repeat(i)));
-    }
-}
-pyramid();
+// function pyramid() {
+//     for(let i =0; i < 7; i++){
+//         console.log(("#".repeat(i)));
+//     }
+// }
+// pyramid();
 
 // Write a program that creates a string that represents an 8×8 grid, using newline characters to separate lines. At each position of the grid there is either a space or a "#" character. The characters should form a chessboard.
 
@@ -101,50 +101,66 @@ pyramid();
 //  # # # #
 // # # # #
 
-let size = 8;
-let board = "";
+// let size = 8;
+// let board = "";
 
-for (let row = 0; row < size; row++) {
-  for (let col = 0; col < size; col++) {
-    if ((row + col) % 2 == 0) {
-      board += " ";
-    } else {
-      board += "#";
-    }
-  }
-  board += "\n";
-}
-
-console.log(board);
-
-// let flavours = ["vanilla", "chocolate", "strawberry"];
-
-// flavours.store = "Rain or Shine"
-
-// console.log(flavours.length); // 3
-
-// for (let prop in flavours){
-//     console.log("🚀 ~ file: index.js:127 ~ prop:", prop)
-//     console.log("🚀 ~ file: index.js:127 ~ flavours:", flavours)
+// for (let row = 0; row < size; row++) {
+//   for (let col = 0; col < size; col++) {
+//     if ((row + col) % 2 == 0) {
+//       board += " ";
+//     } else {
+//       board += "#";
+//     }
+//   }
+//   board += "\n";
 // }
-// console.log(flavours);
-// console.log(flavours.length); // 3
 
-class Dog {
-    constructor(name, breed, weight) {
-        this.name = name;
-        this.breed = breed;
-        this.weight = weight;
-    }
-}
-class ShowDog extends Dog {
-    constructor(name, breed, weight, handler) {
-        super(name, breed, weight);
-        this.handler = handler;
-    }
-}
+// console.log(board);
 
-const fido = new ShowDog("Fido", "Mixed", 38, "Bob");
-console.log("🚀 ~ file: index.js:150 ~ fido:", fido);
 
-// console.log("🚀 ~ file: index.js:143 ~ Dog:", Dog);
+
+// class Dog {
+//     constructor(name, breed, weight) {
+//         this.name = name;
+//         this.breed = breed;
+//         this.weight = weight;
+//     }
+// }
+// class ShowDog extends Dog {
+//     constructor(name, breed, weight, handler) {
+//         super(name, breed, weight);
+//         this.handler = handler;
+//     }
+// }
+
+// const fido = new ShowDog("Fido", "Mixed", 38, "Bob");
+// console.log("🚀 ~ file: index.js:150 ~ fido:", fido);
+
+
+// Given a string and an array of integers representing indices, capitalize all letters at the given indices.
+
+// For example:
+
+// capitalize("abcdef",[1,2,5]) = "aBCdeF"
+// capitalize("abcdef",[1,2,5,100]) = "aBCdeF". There is no index 100.
+// The input will be a lowercase string with no spaces and an array of digits.
+
+// Good luck!
+
+// function capitalize(s,arr){ 
+//     let str = s.split("");
+//     for (let i = 0; i < arr.length; i++){
+//         if (arr[i] < str.length){
+//             str[arr[i]] = str[arr[i]].toUpperCase();
+//         }
+//     }
+//     return str.join("");
+// }
+
+const capitalize = (string, array) => 
+  string.replace(/./g, (char, index) =>
+    array.includes(index) ? char.toUpperCase() : char
+  );
+  
+console.log(capitalize("abcdef",[1,2,5]));
+console.log(capitalize("abcdef",[1,2,5,100]));
