@@ -116,3 +116,35 @@ for (let row = 0; row < size; row++) {
 }
 
 console.log(board);
+
+// let flavours = ["vanilla", "chocolate", "strawberry"];
+
+// flavours.store = "Rain or Shine"
+
+// console.log(flavours.length); // 3
+
+// for (let prop in flavours){
+//     console.log("🚀 ~ file: index.js:127 ~ prop:", prop)
+//     console.log("🚀 ~ file: index.js:127 ~ flavours:", flavours)
+// }
+// console.log(flavours);
+// console.log(flavours.length); // 3
+
+class Dog {
+    constructor(name, breed, weight) {
+        this.name = name;
+        this.breed = breed;
+        this.weight = weight;
+    }
+}
+class ShowDog extends Dog {
+    constructor(name, breed, weight, handler) {
+        super(name, breed, weight);
+        this.handler = handler;
+    }
+}
+
+const fido = new ShowDog("Fido", "Mixed", 38, "Bob");
+console.log("🚀 ~ file: index.js:150 ~ fido:", fido);
+
+// console.log("🚀 ~ file: index.js:143 ~ Dog:", Dog);
