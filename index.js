@@ -136,16 +136,8 @@
 // const fido = new ShowDog("Fido", "Mixed", 38, "Bob");
 // console.log("🚀 ~ file: index.js:150 ~ fido:", fido);
 
-
+// ======================
 // Given a string and an array of integers representing indices, capitalize all letters at the given indices.
-
-// For example:
-
-// capitalize("abcdef",[1,2,5]) = "aBCdeF"
-// capitalize("abcdef",[1,2,5,100]) = "aBCdeF". There is no index 100.
-// The input will be a lowercase string with no spaces and an array of digits.
-
-// Good luck!
 
 // function capitalize(s,arr){ 
 //     let str = s.split("");
@@ -157,10 +149,19 @@
 //     return str.join("");
 // }
 
-const capitalize = (string, array) => 
-  string.replace(/./g, (char, index) =>
-    array.includes(index) ? char.toUpperCase() : char
-  );
+// const capitalize = (string, array) => 
+//   string.replace(/./g, (char, index) =>
+//     array.includes(index) ? char.toUpperCase() : char
+//   );
   
-console.log(capitalize("abcdef",[1,2,5]));
-console.log(capitalize("abcdef",[1,2,5,100]));
+// ======================
+
+// arr type is an array of integers
+// function filterList(arr){
+//   // create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+//   return numbersOnly = arr.filter(element => typeof element === "number");
+// }
+
+// console.log(filterList([1,2,'aasf','1','123',123]))
+
+// ======================
