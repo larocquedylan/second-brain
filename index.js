@@ -1,3 +1,5 @@
+const { measureExecutionTime } = require('./performance-test');
+
 // Create a function that accepts a string and a single character, and returns an integer of the count of occurrences the 2nd argument is found in the first one.
 
 // If no occurrences can be found, a count of 0 should be returned.
@@ -165,3 +167,49 @@
 // console.log(filterList([1,2,'aasf','1','123',123]))
 
 // ======================
+function isPangramA(string){
+    let letters = "abcdefghijklmnopqrstuvwxyz";
+    let str = string.toLowerCase();
+    let count=0;
+    for (let i = 0; i < letters.length; i++){
+      if (str.includes(letters[i])){
+        count++;
+      }
+    }
+    if (count === 26){
+      return true;
+    } else{
+      return false;
+    }
+}
+
+function isPangramB(string){
+    let letters = "abcdefghijklmnopqrstuvwxyz";
+    let str = string.toLowerCase();
+    for (let i = 0; i < letters.length; i++){
+      if (!str.includes(letters[i])){
+        return false;
+      }
+    }
+    return true;
+}
+
+function isPangramC(string){
+    let letters = "abcdefghijklmnopqrstuvwxyz";
+    let str = string.toLowerCase();
+    return letters.split("").every(letter => str.includes(letter));
+}
+
+function isPangramD(string){
+    let letters = "abcdefghijklmnopqrstuvwxyz";
+    let str = string.toLowerCase();
+    return letters.split("").every(letter => str.indexOf(letter) !== -1);
+}
+
+const input = "The quick brown fox jumps over the lazy dog";
+measureExecutionTime(isPangramA, input);
+measureExecutionTime(isPangramB, input);
+measureExecutionTime(isPangramC, input);
+measureExecutionTime(isPangramD, input);
+
+
