@@ -207,9 +207,16 @@ function isPangramD(string){
 }
 
 const input = "The quick brown fox jumps over the lazy dog";
-measureExecutionTime(isPangramA, input);
+measureExecutionTime(isPangramA, input); 
 measureExecutionTime(isPangramB, input);
 measureExecutionTime(isPangramC, input);
 measureExecutionTime(isPangramD, input);
 
+
+
+const arr = new Array(); // []
+arr.length = 4; // [undefined, undefined, undefined, undefined]
+console.log(arr.fill(7));
+console.log(arr.fill(2,1));
+console.log(arr.fill(4, 1, 2));
 
