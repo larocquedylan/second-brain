@@ -1,27 +1,58 @@
 import './App.css'; 
 // import SayHello from './components/SayHello';
 import Hello from './components/Hello';
-import Comment from './components/Comment';
-import ConditionalRender from './components/ConditionalRender';
 import Props from './components/Props';
+import Counter from './components/Counter';
+import ApiCall from './components/ApiCall';
+import Greeting from './components/Greeting';
+import { useState } from 'react';
 
 function App() {
+const [count, setCount] = useState(0);
+// let count = 0;
 
+// let increment = () => {
+//   count++;
+//   console.log(count);
+// }
+
+// let decrement = () => {
+//   count--;
+//   console.log(count);
+// }
 
   return (
     <div className="App">
 
-      <Hello name="Tyson" /> 
-      <Hello name="Dylan" />
-      {/* <Hello />
+      {/* <Hello name="Tyson" /> 
+      <Props /> */}
 
-      <Comment username="tyson" time={(new Date()).toString()}> 
-        <p> this is a comment</p>
-        <div> hehedjasdlkjsafls</div>
-      </Comment> */}
+      {/* why we need state */}
+      {/* <h1>Count: {count}</h1>
+      <button onClick={increment}>Increment </button>
+      <button onClick={decrement}>Decrement </button> */}
 
-    {/* <ConditionalRender /> */}
-    <Props />
+      {/* basic state example */}
+      {/* <Counter /> */}
+
+      {/* Two different components get their own state */}
+      {/* <Counter /> */}
+
+      {/* Passing props to a component */}
+      {/* <Counter count={10} />
+      <Counter />  */}
+
+      {/* const [count, setCount] = useState(0); */}
+       {/* <Counter count={count} setCount={setCount} /> 
+      <Counter count={count} setCount={setCount} /> */}
+
+
+      {/* <Greeting /> */}
+
+
+      {/* more real world example */}
+      <ApiCall />
+
     </div>
   );
 }
