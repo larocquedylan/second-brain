@@ -20,6 +20,10 @@ But again, no one wants to use `React.createElement()` directly. So, we can use 
     )
     ReactDom.render(element, document.getElementById('root'))
 
+    // babel output:
+    const element = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", null, "hello"), " ", /*#__PURE__*/React.createElement("span", null, " world"));
+    ReactDom.render(element, document.getElementById('root'));
+
 This is incredibly common and as such, we use the shorthand that I was introduced to `<>` and `</>`.
 
     const element = (
