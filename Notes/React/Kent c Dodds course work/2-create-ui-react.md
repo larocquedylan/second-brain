@@ -2,10 +2,12 @@
 
 TDLR; To create a UI with react. We need to add React (creating elements) and ReactDom (render elements to the page) to the page.
 
-We can get react using unpkg.com and add it to our html file.
+- React.createElement(elementType, {props}, ...children)
+- ReactDOM.render()
+  We can get react using unpkg.com and add it to our html file.
 
-    <script src="https://unpkg.com/react/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+      <script src="https://unpkg.com/react/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
 
 With React and ReactDOM we can create react elements, and use react dom to render them on the page.
 This works similar to the way we create elements with the document API. But, instead of creating the element and then giving it properties. We add the properties to the element upon creation. We can add the content of the element as a property called `children`.
