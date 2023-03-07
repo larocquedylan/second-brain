@@ -4,7 +4,7 @@ Every closure has three scopes
 
 - Local scope
 
-- Parent scope (block, function, or module), and it's parents scope
+- Parent scope (block, function, or module),
 
 - all the way to the Global scope
 
@@ -25,8 +25,6 @@ The most grandparent function is itself a nested function.
     console.log(sum(1)(2)(3)(4)) ; // 11
 
 The most inner child has access to the globally scope variable a=1.
-
-We can also store each step in function by naming each step if we want to access them later
 
     const e = 10;
     function sum(a) {
@@ -60,49 +58,9 @@ Currying is a tool in functional programming. You take a function that takes mul
 
 ### Why is Currying useful?
 
-Example without Currying
+Well let say we want to append to the dom several different tags with varying amounts of attributes on them. How would we go about doing this without writing it line by line?
 
-    let dogs = [
-        { name: 'kawhi', element: 'water'}
-        { name: 'JJ', element: 'fire'}
-        { name: 'Lucky', element: 'air'}
-        { name: 'Colonel', element: 'time'}
-    ]
-
-    let hasElement = (element, obj) => obj.element === element;
-
-    let timeDogs = dogs.filter(x => hasElement(('time), x));
-
-    console.log(timeDogs);
-
-- This has a `dogs` array of objects. Each object has a `name` and `element` property.
-
-- `hasElement` is an arrow function that takes an `element` and an `obj` as arugments and checks if the `obj`element === to the `element` passed. It returns true if it does.
-
-- `timeDogs` filters out the `timeDog` from the `dogs` array. `Filter` take a call back function that takes every item from the `dogs` array and checks it with the `hasElement` and pass it the `x` object. This will return a true or false as well.
-
-### How to do it with Currying?
-
-    function filterByKey(key){
-        return function(value){
-            return function(obj){
-                return obj[key] === value;
-            }
-        }
-    }
-
-    const filterByElement = filterByKey('element');
-    const timeDogs = dogs.filter(filterByElement('time'));
-
-This isn't really a great usecase in my opinion and makes the program more verbose and harder to read imo but it illustrates how to do currying.
-
-- `filterByKey('element')` returns a new function that takes a value parameter and returns a new function
-
-- `filterByElement('time')` invokes the `function(value)` with 'time' as the value. This returns another function which takes an `obj` as a parameter and returns a boolean.
-
-- This is then passed as a callback function to `filter` method of the `dogs` array. In this case, each object in the `dogs` array is the individually the `obj` that we filter. It returns true or false based on if `obj[key]` === `value` i.e. dogs['element'] === 'time' .
-
-## More practical Example of Currying
+Wcan make a function factory to do this for us. Functions can take as many arugment as we like! So the number of attributes we want to put on an element isn't bounded or uniform across all elements.
 
     function createElement(tag) {
             return function(props) {
@@ -128,13 +86,11 @@ This isn't really a great usecase in my opinion and makes the program more verbo
     container.appendChild(header);
     document.body.appendChild(container);
 
-So he we define a `createElement` function that takes a `tag` as argument to define the type of element it should create.
-
-This returns a new function that takes `props` as an arugment. Thus the curries function takes the props and adds them as attributes to the element we created in part one of the function.
+`createElement` function takes a `tag` as argument to define the type of element it should create. This returns a new function that takes `props` as an arugment.
 
 So we created special version of `createElement` function for `div` and `button`, which we can then use to props as the attribute for the element.
 
-This is super dope actually and a very composable way to manipulating the DOM.
+This is super dope and very composable.
 
 ## How that would look in React??
 
