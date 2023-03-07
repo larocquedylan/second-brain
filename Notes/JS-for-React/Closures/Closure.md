@@ -20,22 +20,33 @@ In other words, closures capture the 'state' of the program. This is the key to 
 
 This can be useful for creating private variables and methods, or for creating functions that need to access a specific context or set of variables.
 
-    function makeFunc() {
-        const name = "dylan";
-        function displayName() {
-            console.log(name);
+    let x  = 1;
+
+    function parent() {
+        let value = 2;
+
+        const child = () => {
+            console.log(x += 5);
+            console.log(value +=1);
         }
-        return displayName;
+
+        <!-- return child(); --> // we don't execute the function
+        return child;
     }
 
-    const myFunc = makeFunc();
-    myFunc(); // dylan
+    const result = parent(); // 1 2
+    console.log(result) // () => { clg(x+=5); clg(value +=1);}
+    <!-- console log the result and it returns the function  -->
 
-Here, `makeFunc()` creates a variable name with the value "dylan". It also defines a function `displayName()` which console logs "dylan". `makeFunc()`actually returns `displayName` before executing `displayName()`.
+    result(); // 6 3
+    result(); // 11 4
 
-We then define `myFunc = makeFunc()` which means it is the return value of `makeFunc()` (i.e. `displayName`). We can now access the name "dylan" from outside of the function even after `makeFunc()` has returned.
+    console.log(x); // 11
+    console.log(value); // reference error
 
-We have created a closure that 'remembers' the value of `name` and allows us to use it later.
+We don't call `child` into action, we store the function in `result` instead. Now we can call `child` and still access `value` while outside of the `parent` where it is local. So we have effectively created a private method where only `result`can access the value.
+
+More so, when we call `result()` again, it increments! So it not only has access to the global scope but also the private scope. And if we console log both variables, `x` stays incremented, while the `value` is unaccessible.
 
 ### High-Order Function
 
