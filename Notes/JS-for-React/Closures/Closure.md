@@ -48,6 +48,30 @@ We don't call `child` into action, we store the function in `result` instead. No
 
 More so, when we call `result()` again, it increments! So it not only has access to the global scope but also the private scope. And if we console log both variables, `x` stays incremented, while the `value` is unaccessible.
 
+### IIFE
+
+    const credits = ((num) => {
+        let credits = num;
+        console.log(`Initial credits: ${credits}`);
+
+        return () => {
+            credits -= 1;
+            if (credits > 0) {
+                console.log(`you have ${credits} credits remaining`)
+            } else {
+                console.log('you don't have anymore credits')
+            }
+        }
+    })(3); // initial credits: 3
+
+    credits(); // you have 2 credits remaining
+    credits(); // you have 1 credits remaining
+    credits(); // you don't have anymore credits
+
+We immediately invoke our `credits` with `num` right after we define it.
+
+Our anonomyous function defined in the return statement has closure over the private`credits` variable within the credits function. This credits variable cannot be accessed in the global scope - the only way to access it is through our anonoymous function. Which decrements everytime.
+
 ### High-Order Function
 
     function makeAdder(x) {
