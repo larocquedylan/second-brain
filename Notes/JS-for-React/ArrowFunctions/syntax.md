@@ -160,53 +160,8 @@ This is the perfect place for arrow functions. We will never use these functions
         .filter(invoice => !invoice.hasPaid)
         .reduce((total, invoice) => total + invoice.amount, 0)
 
-### we can use rest parameters in arrow functions
+## What arrow functions no good for?
 
-    let sum = (...args) => {
-      let sum = 0;
-      for (let arg of args) sum += arg;
-      return sum;
-    };
+Because arrow functions are essentially anonymous functions they do not estbliash their own bindings for `this`, `arugments`, or `super` objects. I primarily use React so this isn't an issue really.
 
-    alert( sum(1) ); // 1
-    alert( sum(1, 2) ); // 3
-    alert( sum(1, 2, 3) ); // 6
-
-### we can use default parameters in arrow functions
-
-    let sum = (a = 1, b = 2) => a + b;
-    alert( sum() ); // 3
-    alert( sum(5) ); // 7
-    alert( sum(5, 10) ); // 15
-
-### We can destrcture arrays and object
-
-    let destructure = ({a , b} = {1 , 2}) => expression
-    let another =([a, b] = [10, 20]) => expression
-
-### Async
-
-    let promise = new Promise((resolve, reject) => {
-      setTimeout(() => resolve("done!"), 1000)
-    });
-
-    let result = await promise; // wait until the promise resolves (*)
-
-    alert(result); // "done!"
-
-    let async (param) => expression
-    let async (param) => {
-        statements
-    }
-
-### Can be used as a callback
-
-    function(a, b, callback){
-        callback(a + b);
-    }
-
-    (a, b, callback) => callback(a + b);
-
-## When can we not have a return statement?
-
-## When
+Arrow functions cannot be used as a `constrcutor` by calling `new`, this will throw a type error.
