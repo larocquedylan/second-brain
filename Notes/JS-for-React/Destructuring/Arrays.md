@@ -2,6 +2,8 @@
 
 Destructuring is the ability to unpack objects (or arrays) and assign the individual properties or elements to their own bindings. This is helpful for making code more readable.
 
+This isn't common, but we do use it for `useState` in hooks.
+
 ## Arrays
 
 Below we are breaking the array into individual variables representing each element in the array. instead of looking for the value 5 in `numbers[2]`, we can destructure it and assign that to `c` as follows
@@ -83,3 +85,9 @@ But if we have an operation for division defined, then it will use that operatio
     clg(sum); // 15
     clg(multiply); // 50
     clg(division); // 0.5
+
+### useState
+
+This is destructuring the `useState` which is actually an array with the state value, as well as the setter function for state.
+
+    const [state, setState] = useState();
