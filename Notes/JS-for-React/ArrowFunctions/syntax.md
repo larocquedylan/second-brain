@@ -60,6 +60,11 @@ Arrow functions are a new way to write functions in JavaScript. They are a short
     alert( sum(5) ); // 7
     alert( sum(5, 10) ); // 15
 
+### We can destrcture arrays and object
+
+    let destructure = ({a , b} = {1 , 2}) => expression
+    let another =([a, b] = [10, 20]) => expression
+
 ### Async
 
     let promise = new Promise((resolve, reject) => {
