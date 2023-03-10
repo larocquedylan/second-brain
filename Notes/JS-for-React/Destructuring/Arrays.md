@@ -66,6 +66,19 @@ Notice if we `console.log(...rest)` it returns a string instead of the array... 
 
 ### Passing default values
 
+Passing default values is used when the value we are placing is either missing or undefined. If it value is `null`it won't work
+
+    const [a = 1 ] = []
+    clg(a); // 1
+
+    const [ b = 2] = [b = undefined]
+    clg(b); // 2
+
+    const [ c =2 ] = [c = null]
+    clg(c); // null
+
+This works inside of functions too..
+
     const operations = (a, b) => {
         return [a+b, a*b];
     }
