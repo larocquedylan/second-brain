@@ -207,6 +207,18 @@ process.stdin is a Readable stream in Node.js that represents the standard input
 
 ### process.stout
 
+    index.js:
+    const fs = require('fs')
+    const read = fs.createReadStream
+
+    read('in.txt')
+    .pipe(process.stdout)
+
+    node:
+    $ echo "Hello" > in.txt
+    $ node index.js
+    Hello
+
 process.stdout is a Writable stream that represents the standard output of the current process. This stream allows you to write data to the terminal or console.
 
 One common use case for process.stdout is to print messages or information to the console. You can use process.stdout.write() to write data to the standard output stream.
@@ -232,6 +244,17 @@ Here is an example of how we might use process.stdout to display data in a tabul
 In this example, we are using process.stdout.write() to display data in a tabular format. We first write the column headers to the console using a tab-separated string. We then iterate over each item in the data array and write each property value to the console using a tab-separated string.
 
 ### process.stderr
+
+    index.js:
+    process.stderr.write('An error!')
+    process.stdin.pipe(process.stdout)
+
+    node:
+    $ echo "Hello" > in.txt
+    $ node index.js < in.txt > out.txt
+    An error!
+    $ cat out.txt
+    Hello
 
 process.stderr is a Writable stream that represents the standard error output of the current process. This stream allows you to write error messages or other important information to the console.
 
