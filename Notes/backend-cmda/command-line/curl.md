@@ -31,3 +31,7 @@ Here the data transfer from "ftp://speed ...." is saved in the file 'hello.zip'
     // curl -C - -O ftp://speedtest.tele2.net/1MB.zip
 
 This will resume the download should something fail in the middle of it... typically due to large transfers.
+
+## inspect headers
+
+    curl -i https://www.example.com
