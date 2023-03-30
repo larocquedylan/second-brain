@@ -256,6 +256,14 @@ In this example, we are using process.stdout.write() to display data in a tabula
     $ cat out.txt
     Hello
 
+Here we have an index.js file that writes an error message to the standard error output stream using process.stderr.write(). It then pipes the standard input stream (process.stdin) to the standard output stream (process.stdout) using the pipe() method.
+
+When we run the `node index.js < in.txt > out.txt`command in the terminal, we are redirecting the contents of the in.txt file to the standard input stream of the index.js script using <. We are also redirecting the output of the script to the out.txt file using >.
+
+The output we see in the terminal is the error message "An error!" that was written to the standard error output stream by the index.js script. This message is not affected by the input or output redirection, and is written directly to the terminal.
+
+However, the contents of the in.txt file are read from the standard input stream by the index.js script, and are then piped to the standard output stream. This is why we see the contents of the in.txt file ("Hello") in the out.txt file when we run cat out.txt.
+
 process.stderr is a Writable stream that represents the standard error output of the current process. This stream allows you to write error messages or other important information to the console.
 
 One common use case for process.stderr is to print error messages or other information to the console when an error occurs. You can use process.stderr.write() to write data to the standard error output stream.
