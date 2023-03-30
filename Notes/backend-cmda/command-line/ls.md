@@ -20,10 +20,27 @@ wildcard character \* (read “star”). For example, to list all files ending i
 
 ## -l
 
-    $ ls -l *.txt
-    total 16
-    -rw-r--r-- 1 mhartl staff  87 Jul 20 18:05 sonnet_1.txt
-    -rw-r--r-- 1 mhartl staff 294 Jul 21 12:09 sonnet_1_reversed.txt
+A detailed listing of the files and directories in the current directory.
+
+    $ ls -l
+    total 196168
+    -rw-r--r--  1 dylan  staff  10203960 15 Feb 16:36 1.wav
+    -rw-r--r--  1 dylan  staff   5292044 15 Feb 16:36 2.wav
+    -rw-r--r--  1 dylan  staff  14112044 15 Feb 16:36 3.wav
+
+The first column represents the file type and permissions. The first character indicates the file type - "-" for a regular file, "d" for a directory, "l" for a symbolic link, and so on. The next nine characters represent the file permissions for the owner, group, and others. The letters "r", "w", and "x" indicate read, write, and execute permissions, respectively.
+
+The second column represents the number of hard links to the file or directory.
+
+The third column represents the owner of the file or directory.
+
+The fourth column represents the group that the file or directory belongs to.
+
+The fifth column represents the file size in bytes.
+
+The sixth column represents the date and time when the file or directory was last modified.
+
+The seventh column represents the name of the file or directory.
 
 ## rtl
 
