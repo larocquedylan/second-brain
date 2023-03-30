@@ -52,6 +52,16 @@ Here, we check if command is empty or invalid, we throw an error code and exit t
 
 ### process.env
 
+    index.js:
+    console.log(process.env)
+
+    [backend] $ node index.js
+    { LANG: 'en_GB.UTF-8',
+    USER: 'tilde',
+    PWD: '/Users/tilde/backend',
+    HOME: '/Users/tilde',
+    TERM_PROGRAM: 'Apple_Terminal',
+
 process.env is an object that contains all of the environment variables available to the current process. Environment variables are key-value pairs that can be set by the operating system or by the user, and are used to provide configuration or other information to running applications.
 
 One common use case for process.env is to store configuration values for your application, such as database credentials or API keys. Here is an example of how you might use process.env to store a database URL:
@@ -73,6 +83,16 @@ Another common use case for process.env is to provide different behavior based o
 In this example, we are accessing an environment variable called "NODE_ENV" using process.env. If the variable is not set (i.e. process.env.NODE_ENV is undefined), we default to a development environment. This allows us to easily switch between different configurations based on where the application is running.
 
 ### process.argv
+
+    index.js:
+    console.log(Got: ' + process.argv)
+
+    node:
+    [backend] $ node index.js one two
+    Got: [ '/usr/bin/node',
+    '/Users/tilde/backend/index.js',
+    'one',
+    'two' ]
 
 process.argv is an array that contains the command-line arguments passed to the current process. When you run a Node.js program from the command line, any arguments provided after the filename will be passed to the process as elements of the process.argv array.
 
@@ -121,6 +141,19 @@ Another use case for process.argv is to pass configuration values to your progra
 In this example, we are getting the first argument passed to the program using process.argv[2]. If no argument is provided, we default to port 3000. This allows us to easily change the port number without modifying code.
 
 ### process.stdin
+
+    index.js:
+    var fs = require('fs')
+    var write = fs.createWriteStream
+
+    process.stdin
+    .pipe(write('out.txt'))
+
+    node:
+    $ echo "Hello" > in.txt
+    $ node index.js < in.txt
+    $ cat out.txt
+    Hello
 
 process.stdin is a Readable stream that represents the standard input of the current process. This stream allows you to read data from the terminal or console.
 
